@@ -1,0 +1,30 @@
+package components
+
+templ Base(title string, nativeClass string, importMap string) {
+	<!DOCTYPE html>
+	<html lang="en" class={ nativeClass }>
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>{ title } · Coded by Shoe</title>
+			<link rel="stylesheet" href="/assets/css/app.css"/>
+			@templ.Raw(importMap)
+			<script type="module" src="/assets/js/app.js"></script>
+		</head>
+		<body>
+			<div class="site-shell">
+				<header class="site-header">
+					<a class="site-brand" href="/">Coded by Shoe</a>
+					<nav aria-label="Main navigation">
+						<a href="/">Home</a>
+						<a href="/notes">Notes</a>
+						<a href="/about">About</a>
+					</nav>
+				</header>
+				<main>
+					{ children... }
+				</main>
+			</div>
+		</body>
+	</html>
+}

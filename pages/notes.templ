@@ -1,0 +1,39 @@
+package pages
+
+import (
+	"github.com/codedbyshoe/go-hotwire-starter/components"
+	"github.com/codedbyshoe/go-hotwire-starter/internal/models"
+)
+
+templ NotesPage(nativeClass string, importMap string, notes []models.Note, formError string) {
+	@components.Base("Notes", nativeClass, importMap) {
+		<section class="intro">
+			<p class="eyebrow">SQLite + GORM</p>
+			<h1>Notes</h1>
+			<p>An example of a Turbo form backed by SQLite. Delete it when you start a real project.</p>
+			<form class="note-form" action="/notes" method="post">
+				<label for="note-body">New note</label>
+				<textarea id="note-body" name="body" rows="3" required></textarea>
+				if formError != "" {
+					<p class="form-error" role="alert">{ formError }</p>
+				}
+				<button class="button-link" type="submit">Save note</button>
+			</form>
+		</section>
+		<section class="demo" aria-labelledby="notes-title">
+			<h2 id="notes-title">Recent notes</h2>
+			if len(notes) == 0 {
+				<p>No notes yet.</p>
+			} else {
+				<ul class="note-list">
+					for _, note := range notes {
+						<li>
+							<p>{ note.Body }</p>
+							<time datetime={ note.CreatedAt.Format("2006-01-02T15:04:05Z07:00") }>{ note.CreatedAt.Format("Jan 2, 2006 3:04 PM") }</time>
+						</li>
+					}
+				</ul>
+			}
+		</section>
+	}
+}

@@ -1,0 +1,21 @@
+package pages
+
+import "github.com/codedbyshoe/go-hotwire-starter/components"
+
+templ IndexPage(nativeClass string, importMap string) {
+	@components.Base("Home", nativeClass, importMap) {
+		<section class="intro">
+			<p class="eyebrow">Go + templ + Hotwire</p>
+			<h1>Web first, native ready.</h1>
+			<p>This app serves HTML that Turbo can navigate on the web and Hotwire Native can present in a mobile app.</p>
+			<a class="button-link" href="/about" data-controller="bridge--button" data-bridge-title="About">Explore the setup</a>
+		</section>
+		<section class="demo" aria-labelledby="demo-title">
+			<h2 id="demo-title">A live Turbo Frame</h2>
+			<p>The time below comes from a separate server route. Refresh it without replacing the whole page.</p>
+			<turbo-frame id="server-time" src="/time" data-controller="refresh">
+				<p>Loading server time…</p>
+			</turbo-frame>
+		</section>
+	}
+}

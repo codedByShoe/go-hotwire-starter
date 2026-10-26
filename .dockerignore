@@ -1,0 +1,10 @@
+.git
+tmp
+bin
+data
+ios
+*.db
+*.db-shm
+*.db-wal
+Dockerfile
+.dockerignore

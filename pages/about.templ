@@ -1,0 +1,15 @@
+package pages
+
+import "github.com/codedbyshoe/go-hotwire-starter/components"
+
+templ AboutPage(nativeClass string, importMap string) {
+	@components.Base("About", nativeClass, importMap) {
+		<article class="intro">
+			<p class="eyebrow">About this starter</p>
+			<h1>One set of HTML routes.</h1>
+			<p>Turbo handles web navigation, Stimulus adds small interactions, and Hotwire Native can present these same URLs as mobile screens.</p>
+			<p>The Android and iOS apps can load their path configuration from <code>/configurations/android_v1.json</code> and <code>/configurations/ios_v1.json</code>.</p>
+			<a class="button-link" href="/">Back home</a>
+		</article>
+	}
+}

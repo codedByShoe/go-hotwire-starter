@@ -1,0 +1,8 @@
+package pages
+
+templ TimeFrame(now string) {
+	<turbo-frame id="server-time">
+		<p class="server-time"><time>{ now }</time></p>
+		<button class="button-link" type="button" data-action="refresh#refresh">Refresh time</button>
+	</turbo-frame>
+}

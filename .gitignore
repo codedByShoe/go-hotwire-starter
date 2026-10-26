@@ -1,0 +1,10 @@
+node_modules/
+tmp/
+ios/**/xcuserdata/
+ios/DerivedData/
+data/
+*.db
+*.db-shm
+*.db-wal
+.DS_Store
+bin/

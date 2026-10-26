@@ -1,0 +1,7 @@
+{
+  "cssDir": "assets/css/velle",
+  "jsDir": "assets/js/velle",
+  "imagesDir": "assets/images/velle",
+  "cssEntry": "assets/css/velle/main.css",
+  "jsEntry": "assets/js/velle/main.js"
+}
