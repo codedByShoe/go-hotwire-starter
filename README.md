@@ -4,7 +4,7 @@ This starter serves HTML from Go's `net/http` and [templ](https://templ.guide), 
 
 ## Start a new project
 
-The starter is a Go module, so [`gonew`](https://pkg.go.dev/golang.org/x/tools/cmd/gonew) can copy it and rewrite the module path. Then the rename tool replaces the display name, Swift identifier and iOS bundle ID, and deletes itself:
+The starter is a Go module, so [`gonew`](https://pkg.go.dev/golang.org/x/tools/cmd/gonew) can copy it and rewrite the module path. gonew only rewrites `.go` files, so the rename tool then fixes the module path in the `.templ` files. It also replaces the display name, Swift identifier and iOS bundle ID, regenerates templ code, and deletes itself:
 
 ```sh
 go install golang.org/x/tools/cmd/gonew@latest
@@ -14,7 +14,7 @@ go run ./cmd/rename -name "My App" -bundle com.example.myapp
 git init && go test ./...
 ```
 
-`-identifier` overrides the Swift/Xcode name, which defaults to the display name in PascalCase (`MyApp`). The example notes feature (`internal/models/note.go`, `internal/db/queries/notes.go`, `pages/notes.templ`, the `/notes` routes in `internal/web/routes.go` and the nav link) is there to show the stack working end to end. Delete it when you no longer need it.
+Without gonew (for example on a plain `git clone`), pass the module path yourself: `go run ./cmd/rename -module github.com/you/myapp -name "My App" -bundle com.example.myapp`. `-identifier` overrides the Swift/Xcode name, which defaults to the display name in PascalCase (`MyApp`). The example notes feature (`internal/models/note.go`, `internal/db/queries/notes.go`, `pages/notes.templ`, the `/notes` routes in `internal/web/routes.go` and the nav link) is there to show the stack working end to end. Delete it when you no longer need it.
 
 ## Project layout
 

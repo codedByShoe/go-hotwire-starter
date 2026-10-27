@@ -8,3 +8,4 @@ data/
 *.db-wal
 .DS_Store
 bin/
+*_templ.go
